@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload PDF</title>
+
+    <!-- ✅ Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/CSS/global.css" />
+    <link rel="stylesheet" href="/CSS/upload.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 400 400"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <defs>
+            <linearGradient id="brainGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#a855f7" />
+              <stop offset="100%" stop-color="#38bdf8" />
+            </linearGradient>
+            <linearGradient id="dotGradL" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#c084fc" />
+              <stop offset="100%" stop-color="#a78bfa" />
+            </linearGradient>
+            <linearGradient id="dotGradR" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#818cf8" />
+              <stop offset="100%" stop-color="#67e8f9" />
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="8" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <g filter="url(#glow)">
+            <!-- Brain outline - side view -->
+            <path
+              d="M200,330 L190,330 
+             C185,325 180,315 178,305 
+             C175,290 170,278 162,268 
+             C150,252 132,240 120,225 
+             C108,210 100,192 98,172 
+             C96,155 100,140 110,128 
+             C105,118 102,105 105,92 
+             C108,78 118,68 130,62 
+             C128,50 132,38 142,30 
+             C152,22 165,20 178,25 
+             C183,18 192,14 200,14 
+             C208,14 217,18 222,25 
+             C235,20 248,22 258,30 
+             C268,38 272,50 270,62 
+             C282,68 292,78 295,92 
+             C298,105 295,118 290,128 
+             C300,140 304,155 302,172 
+             C300,192 292,210 280,225 
+             C268,240 250,252 238,268 
+             C230,278 225,290 222,305 
+             C220,315 215,325 210,330 Z"
+              fill="none"
+              stroke="url(#brainGrad)"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <!-- Brainstem -->
+            <path
+              d="M190,330 C188,345 185,360 182,375"
+              fill="none"
+              stroke="#a855f7"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M210,330 C212,345 215,360 218,375"
+              fill="none"
+              stroke="#38bdf8"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+
+            <!-- Cerebellum -->
+            <path
+              d="M222,305 C240,298 255,280 265,258 C272,242 276,228 280,225"
+              fill="none"
+              stroke="#38bdf8"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+
+            <!-- Central trunk -->
+            <line
+              x1="200"
+              y1="290"
+              x2="200"
+              y2="60"
+              stroke="url(#brainGrad)"
+              stroke-width="1.5"
+              opacity="0.6"
+            />
+
+            <!-- Left branches + dots -->
+            <line
+              x1="200"
+              y1="250"
+              x2="152"
+              y2="225"
+              stroke="#b380f0"
+              stroke-width="1.2"
+            />
+            <line
+              x1="152"
+              y1="225"
+              x2="125"
+              y2="210"
+              stroke="#b380f0"
+              stroke-width="0.8"
+              opacity="0.7"
+            />
+            <circle cx="152" cy="225" r="4.5" fill="url(#dotGradL)" />
+            <circle cx="125" cy="210" r="3.5" fill="url(#dotGradL)" />
+
+            <line
+              x1="200"
+              y1="210"
+              x2="142"
+              y2="185"
+              stroke="#b380f0"
+              stroke-width="1.2"
+            />
+            <line
+              x1="142"
+              y1="185"
+              x2="118"
+              y2="175"
+              stroke="#b380f0"
+              stroke-width="0.8"
+              opacity="0.7"
+            />
+            <circle cx="142" cy="185" r="4.5" fill="url(#dotGradL)" />
+            <circle cx="118" cy="175" r="3.5" fill="url(#dotGradL)" />
+
+            <line
+              x1="200"
+              y1="170"
+              x2="138"
+              y2="148"
+              stroke="#b380f0"
+              stroke-width="1.2"
+            />
+            <line
+              x1="138"
+              y1="148"
+              x2="115"
+              y2="138"
+              stroke="#b380f0"
+              stroke-width="0.8"
+              opacity="0.7"
+            />
+            <circle cx="138" cy="148" r="4.5" fill="url(#dotGradL)" />
+            <circle cx="115" cy="138" r="3.5" fill="url(#dotGradL)" />
+
+            <line
+              x1="200"
+              y1="130"
+              x2="150"
+              y2="105"
+              stroke="#b380f0"
+              stroke-width="1.2"
+            />
+            <circle cx="150" cy="105" r="4" fill="url(#dotGradL)" />
+
+            <line
+              x1="200"
+              y1="95"
+              x2="162"
+              y2="68"
+              stroke="#b380f0"
+              stroke-width="1"
+            />
+            <circle cx="162" cy="68" r="3.5" fill="url(#dotGradL)" />
+
+            <!-- Right branches + dots -->
+            <line
+              x1="200"
+              y1="250"
+              x2="250"
+              y2="222"
+              stroke="#7cacf8"
+              stroke-width="1.2"
+            />
+            <line
+              x1="250"
+              y1="222"
+              x2="275"
+              y2="212"
+              stroke="#7cacf8"
+              stroke-width="0.8"
+              opacity="0.7"
+            />
+            <circle cx="250" cy="222" r="4.5" fill="url(#dotGradR)" />
+            <circle cx="275" cy="212" r="3.5" fill="url(#dotGradR)" />
+
+            <line
+              x1="200"
+              y1="210"
+              x2="258"
+              y2="182"
+              stroke="#7cacf8"
+              stroke-width="1.2"
+            />
+            <line
+              x1="258"
+              y1="182"
+              x2="282"
+              y2="175"
+              stroke="#7cacf8"
+              stroke-width="0.8"
+              opacity="0.7"
+            />
+            <circle cx="258" cy="182" r="4.5" fill="url(#dotGradR)" />
+            <circle cx="282" cy="175" r="3.5" fill="url(#dotGradR)" />
+
+            <line
+              x1="200"
+              y1="170"
+              x2="262"
+              y2="148"
+              stroke="#7cacf8"
+              stroke-width="1.2"
+            />
+            <line
+              x1="262"
+              y1="148"
+              x2="285"
+              y2="140"
+              stroke="#7cacf8"
+              stroke-width="0.8"
+              opacity="0.7"
+            />
+            <circle cx="262" cy="148" r="4.5" fill="url(#dotGradR)" />
+            <circle cx="285" cy="140" r="3.5" fill="url(#dotGradR)" />
+
+            <line
+              x1="200"
+              y1="130"
+              x2="252"
+              y2="105"
+              stroke="#7cacf8"
+              stroke-width="1.2"
+            />
+            <circle cx="252" cy="105" r="4" fill="url(#dotGradR)" />
+
+            <line
+              x1="200"
+              y1="95"
+              x2="240"
+              y2="65"
+              stroke="#7cacf8"
+              stroke-width="1"
+            />
+            <circle cx="240" cy="65" r="3.5" fill="url(#dotGradR)" />
+
+            <!-- Top dots -->
+            <circle cx="200" cy="60" r="3.5" fill="#a78bfa" />
+            <line
+              x1="200"
+              y1="60"
+              x2="185"
+              y2="40"
+              stroke="#b380f0"
+              stroke-width="0.8"
+              opacity="0.5"
+            />
+            <line
+              x1="200"
+              y1="60"
+              x2="215"
+              y2="38"
+              stroke="#7cacf8"
+              stroke-width="0.8"
+              opacity="0.5"
+            />
+            <circle cx="185" cy="40" r="3" fill="url(#dotGradL)" />
+            <circle cx="215" cy="38" r="3" fill="url(#dotGradR)" />
+          </g>
+        </svg>
+        <h1>DeepDocs</h1>
+      </div>
+    </header>
+    <main>
+      <div>
+        <div>
+
+          <form action="/upload" method="post" enctype="multipart/form-data">
+            <!-- File Input -->
+            <div class="mb-4">
+              <p class="form-label fw-bold" id="text-line">UPLOAD PDF</p>
+
+              <div class="upload-box text-center p-4">
+                <input
+                  type="file"
+                  name="file"
+                  id="fileInput"
+                  accept="application/pdf"
+                  required
+                  hidden
+                />
+
+                <label for="fileInput" class="upload-label">
+                  <div class="upload-icon">📄 <p class="upload-text">
+                    Drag & Drop your PDF here <br />
+                    <span>or click to browse</span>
+                  </p></div>
+
+                  
+
+                  <p id="fileName" class="text-success small mt-2"></p>
+                </label>
+              </div>
+            </div>
+
+            <!-- Upload Button -->
+            <button type="submit" class="btn btn-primary w-100">
+              Upload File
+            </button>
+          </form>
+
+          <!-- Divider -->
+          <hr class="my-4" />
+
+          <!-- Link to Files -->
+          <div class="text-center">
+            <a href="/f" class="text-decoration-none">
+              View Uploaded Files📁
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✅ Bootstrap JS (optional but good practice) -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </main>
+    <footer>
+      <p>© 2026 DeepDocs. All Rights Reserved.</p>
+
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+      </div>
+    </footer>
+  </body>
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const fileName = document.getElementById("fileName");
+
+    fileInput.addEventListener("change", function () {
+      if (this.files.length > 0) {
+        fileName.textContent = "Selected: " + this.files[0].name;
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= file.fileName %> — DeepDocs</title>
+  <link rel="stylesheet" href="/css/fileDetail.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════ -->
+<nav class="navbar">
+  <a class="nav-logo" href="/">🧠 DeepDocs</a>
+  <a class="nav-back" href="/f">← Back to files</a>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     MAIN LAYOUT
+══════════════════════════════════════════════ -->
+<div class="page-layout">
+
+  <!-- ── LEFT PANEL: search + results ── -->
+  <aside class="left-panel">
+
+    <div class="file-meta">
+      <span class="pdf-badge">PDF</span>
+      <span class="file-name"><%= file.fileName %></span>
+    </div>
+
+    <!-- Search form -->
+    <form class="search-form" action="/f/<%= file._id %>/search" method="GET">
+      <div class="search-input-wrap">
+        <input
+          type="text"
+          name="q"
+          class="search-input"
+          placeholder="Search inside this document…"
+          value="<%= query %>"
+          autocomplete="off"
+        />
+        <button type="submit" class="btn-search">Search</button>
+      </div>
+
+      <!-- Mode toggle -->
+      <div class="mode-toggle">
+        <label class="mode-opt">
+          <input
+            type="radio"
+            name="mode"
+            value="vector"
+            <%= (typeof searchMode === 'undefined' || searchMode === 'vector') ? 'checked' : '' %>
+          />
+          <span>Semantic</span>
+        </label>
+        <label class="mode-opt">
+          <input
+            type="radio"
+            name="mode"
+            value="keyword"
+            <%= searchMode === 'keyword' ? 'checked' : '' %>
+          />
+          <span>Keyword</span>
+        </label>
+      </div>
+    </form>
+
+    <!-- Results -->
+    <% if (query) { %>
+      <div class="results-header">
+        <% if (noResults) { %>
+          <p class="no-results">No results found for "<strong><%= query %></strong>"</p>
+        <% } else { %>
+          <p class="results-count">
+            <%= matches.length %> result<%= matches.length !== 1 ? 's' : '' %> for
+            "<strong><%= query %></strong>"
+            <span class="mode-tag"><%= searchMode %></span>
+          </p>
+        <% } %>
+      </div>
+
+      <% if (!noResults) { %>
+        <ul class="match-list">
+          <% matches.forEach((match, i) => { %>
+            <li class="match-item" data-line="<%= match.lineNumber %>">
+              <div class="match-top">
+                <span class="match-index">#<%= i + 1 %></span>
+                <% if (match.score !== null && match.score !== undefined) { %>
+                  <span class="match-score">score: <%= (match.score * 100).toFixed(1) %>%</span>
+                <% } %>
+                <% if (match.type === 'keyword') { %>
+                  <span class="match-line">line <%= match.lineNumber %></span>
+                <% } %>
+              </div>
+              <p class="match-text"><%= match.text.slice(0, 300) %><%= match.text.length > 300 ? '…' : '' %></p>
+            </li>
+          <% }) %>
+        </ul>
+      <% } %>
+    <% } %>
+
+    <!-- Chat with PDF button -->
+    <button class="btn-chat-open" id="chatOpenBtn">
+      💬 Chat with PDF
+    </button>
+
+  </aside>
+
+  <!-- ── RIGHT PANEL: document content ── -->
+  <main class="doc-panel">
+    <% if (searchMode === 'keyword' && highlightedContent) { %>
+      <div class="doc-content"><%- highlightedContent %></div>
+    <% } else { %>
+      <div class="doc-content">
+        <% file.content.split('\n').forEach((line, i) => { %>
+          <div id="line-<%= i + 1 %>" class="doc-line"><%- line || '&nbsp;' %></div>
+        <% }) %>
+      </div>
+    <% } %>
+  </main>
+
+</div>
+
+<!-- ══════════════════════════════════════════════
+     CHAT DRAWER (slides in from right)
+══════════════════════════════════════════════ -->
+<div class="chat-overlay" id="chatOverlay"></div>
+
+<div class="chat-drawer" id="chatDrawer">
+  <div class="chat-header">
+    <span>💬 Chat with PDF</span>
+    <button class="chat-close" id="chatCloseBtn">✕</button>
+  </div>
+
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg assistant">
+      <div class="msg-bubble">
+        Hi! Ask me anything about <strong><%= file.fileName %></strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-input-area">
+    <textarea
+      id="chatInput"
+      class="chat-textarea"
+      placeholder="Ask a question…"
+      rows="2"
+    ></textarea>
+    <button class="btn-send" id="chatSendBtn">Send</button>
+  </div>
+</div>
+
+<!-- Pass file ID to JS -->
+<script>
+  window.FILE_ID = "<%= file._id %>";
+</script>
+<script src="/js/fileDetail.js"></script>
+
+</body>
+</html>
