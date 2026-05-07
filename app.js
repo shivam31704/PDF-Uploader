@@ -30,18 +30,21 @@ app.use(express.static("public"));
 
 app.use(chatRoutes);
 
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
-
-app.listen(8080, () => {
-  console.log("Server is running on port 8080");
-});
-
-
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
+
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
 
 app.get("/", (req, res) => {
   res.render("upload.ejs");
