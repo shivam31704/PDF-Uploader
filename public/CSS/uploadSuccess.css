@@ -10,12 +10,12 @@ main {
   justify-content: center;
   align-items: center;
 }
-.content-area{
-  width:100%;
+.content-area {
+  width: 100%;
 }
 .main-section {
-  width: 90vw !important;        /* take 90% of viewport width */
-  max-width: 1100px !important;  /* but cap it on large screens */
+  width: 90vw !important; /* take 90% of viewport width */
+  max-width: 1100px !important; /* but cap it on large screens */
   padding: 0 !important;
 }
 
@@ -27,7 +27,7 @@ main {
 
 /* Remove this from your .card override — kill the shadow and border */
 .card {
-    background: linear-gradient(180deg, #0f172a, #020617);
+  background: linear-gradient(180deg, #0f172a, #020617);
   color: white;
   border: none;
   box-shadow: none;
@@ -46,8 +46,6 @@ main {
   border-shadow: none;
 }
 
-
-
 .text-center {
   color: #a855f7;
   background: linear-gradient(90deg, #a855f7, #38bdf8);
@@ -55,13 +53,13 @@ main {
   -webkit-text-fill-color: transparent;
 }
 
-.card{
+.card {
   max-width: 600px;
   width: 100%;
   background: linear-gradient(180deg, #0f172a, #020617);
   color: white;
 }
-.btn{
+.btn {
   border: none;
   border-radius: 10px;
   background: linear-gradient(90deg, #6366f1, #d946ef);
@@ -70,15 +68,98 @@ main {
   cursor: pointer;
 }
 a.btn.btn-outline-success[href="/f"]:hover {
-   /* Your hover styles go here */
-   text-decoration: none; /* Example: remove underline on hover */
-   box-shadow: -6px 6px 15px rgba(138, 64, 235, 0.2); /* Example: add a shadow */
-   opacity: 0.9;;
-  }
+  /* Your hover styles go here */
+  text-decoration: none; /* Example: remove underline on hover */
+  box-shadow: -6px 6px 15px rgba(138, 64, 235, 0.2); /* Example: add a shadow */
+  opacity: 0.9;
+}
 a.btn.btn-outline-primary[href^="/"]:hover {
-   /* Your hover styles go here */
-   text-decoration: none; /* Example: remove underline on hover */
-   box-shadow: -6px 6px 15px rgba(138,64,235,0.2); /* Example: add a shadow */
-   opacity: 0.9;
+  /* Your hover styles go here */
+  text-decoration: none; /* Example: remove underline on hover */
+  box-shadow: -6px 6px 15px rgba(138, 64, 235, 0.2); /* Example: add a shadow */
+  opacity: 0.9;
+}
+
+/* ════════════════════════════════════ */
+/* RESPONSIVE DESIGN - TABLET & MOBILE */
+/* ════════════════════════════════════ */
+
+/* Tablet: 768px and below */
+@media (max-width: 768px) {
+  .content-area {
+    width: 100%;
   }
 
+  .main-section {
+    width: 85vw !important;
+    max-width: 500px !important;
+  }
+
+  .card {
+    max-width: 500px;
+    width: 95vw;
+  }
+
+  .text-center {
+    font-size: 24px;
+  }
+
+  .preview-box {
+    max-height: 120px;
+    font-size: 12px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px 24px;
+  }
+}
+
+/* Mobile: 480px and below */
+@media (max-width: 480px) {
+  .content-area {
+    width: 100%;
+  }
+
+  .main-section {
+    width: 90vw !important;
+    max-width: 100% !important;
+    padding: 15px !important;
+  }
+
+  main {
+    padding: 15px 10px;
+  }
+
+  .card {
+    max-width: none;
+    width: 90vw;
+    max-height: 80vh;
+    border-radius: 10px;
+    padding: 20px !important;
+  }
+
+  .text-center {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .preview-box {
+    max-height: 100px;
+    font-size: 11px;
+    padding: 12px;
+    border-radius: 6px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .btn:last-of-type {
+    margin-bottom: 0;
+  }
+}

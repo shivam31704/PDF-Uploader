@@ -498,6 +498,295 @@ body {
 ::-webkit-scrollbar {
   width: 5px;
 }
+
+/* ════════════════════════════════════ */
+/* RESPONSIVE DESIGN - TABLET & MOBILE */
+/* ════════════════════════════════════ */
+
+/* Tablet: 768px and below */
+@media (max-width: 768px) {
+  :root {
+    --left-w: 280px;
+    --drawer-w: 320px;
+    --navbar-h: 48px;
+  }
+
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .nav-logo {
+    font-size: 14px;
+  }
+
+  .nav-back {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .page-layout {
+    grid-template-columns: var(--left-w) 1fr;
+  }
+
+  .left-panel {
+    padding: 1rem;
+  }
+
+  .file-name {
+    font-size: 13px;
+  }
+
+  .search-input {
+    font-size: 12px;
+    padding: 8px 11px;
+  }
+
+  .btn-search {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .mode-opt {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .results-count {
+    font-size: 11px;
+  }
+
+  .match-item {
+    padding: 8px 10px;
+  }
+
+  .match-text {
+    font-size: 11px;
+  }
+
+  .btn-chat-open {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .doc-panel {
+    padding: 1rem 1.5rem;
+  }
+
+  .doc-content {
+    font-size: 12px;
+  }
+
+  .chat-drawer {
+    width: var(--drawer-w);
+  }
+}
+
+/* Mobile: 480px and below */
+@media (max-width: 480px) {
+  :root {
+    --left-w: 100%;
+    --drawer-w: 100%;
+    --navbar-h: 44px;
+  }
+
+  body {
+    height: auto;
+    overflow: visible;
+  }
+
+  .navbar {
+    height: auto;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .nav-logo {
+    font-size: 13px;
+  }
+
+  .nav-back {
+    width: 100%;
+    font-size: 11px;
+    padding: 6px 10px;
+    text-align: center;
+  }
+
+  .page-layout {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+  }
+
+  .left-panel {
+    width: 100%;
+    max-height: 50vh;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .file-meta {
+    gap: 6px;
+  }
+
+  .pdf-badge {
+    font-size: 9px;
+    padding: 2px 5px;
+  }
+
+  .file-name {
+    font-size: 12px;
+  }
+
+  .search-form {
+    gap: 8px;
+  }
+
+  .search-input-wrap {
+    gap: 6px;
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 100%;
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .btn-search {
+    width: 100%;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .mode-toggle {
+    flex-wrap: wrap;
+  }
+
+  .mode-opt {
+    flex: 1;
+    min-width: 80px;
+    font-size: 10px;
+    padding: 6px 8px;
+    justify-content: center;
+  }
+
+  .results-header {
+    margin-top: 0.5rem;
+  }
+
+  .results-count {
+    font-size: 11px;
+  }
+
+  .mode-tag {
+    font-size: 9px;
+    padding: 0px 4px;
+    margin-left: 3px;
+  }
+
+  .match-list {
+    gap: 6px;
+    max-height: calc(50vh - 180px);
+    overflow-y: auto;
+  }
+
+  .match-item {
+    padding: 8px 10px;
+  }
+
+  .match-top {
+    gap: 6px;
+  }
+
+  .match-index {
+    font-size: 9px;
+  }
+
+  .match-score,
+  .match-line {
+    font-size: 10px;
+  }
+
+  .match-text {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .btn-chat-open {
+    width: 100%;
+    font-size: 13px;
+    padding: 10px 8px;
+    margin-top: 10px;
+  }
+
+  .doc-panel {
+    width: 100%;
+    height: auto;
+    min-height: calc(100vh - 44px - 50vh - 40px);
+    overflow-y: visible;
+    padding: 12px 10px;
+    flex: 1;
+  }
+
+  .doc-content {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .doc-line {
+    padding: 1px 0;
+  }
+
+  .chat-overlay {
+    z-index: 300;
+  }
+
+  .chat-drawer {
+    width: 100%;
+    height: 100%;
+    z-index: 400;
+  }
+
+  .chat-header {
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+
+  .chat-close {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  .chat-messages {
+    padding: 10px 10px;
+    gap: 10px;
+  }
+
+  .msg-bubble {
+    max-width: 90%;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .chat-input-area {
+    padding: 10px 8px;
+    gap: 6px;
+  }
+
+  .chat-textarea {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .btn-send {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
 ::-webkit-scrollbar-track {
   background: transparent;
 }

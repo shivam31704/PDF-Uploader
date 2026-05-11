@@ -31,7 +31,7 @@ input[type="file"] {
   background: #f8f9ff;
   cursor: pointer;
   transition: all 0.3s ease;
- width: 30rem;
+  width: 30rem;
 }
 
 .upload-box:hover {
@@ -50,8 +50,8 @@ input[type="file"] {
   font-size: 40px;
   margin-bottom: 10px;
 }
-.upload-icon p{
-  font-size:16px;
+.upload-icon p {
+  font-size: 16px;
   margin: 5px 5px 10px 5px;
 }
 
@@ -91,7 +91,107 @@ main a {
   text-decoration: none;
 }
 
+.container {
+  height: 50px;
+}
 
-.container{
-height: 50px;
+/* ════════════════════════════════════ */
+/* RESPONSIVE DESIGN - TABLET & MOBILE */
+/* ════════════════════════════════════ */
+
+/* Tablet: 768px and below */
+@media (max-width: 768px) {
+  main h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  input[type="file"] {
+    width: 90vw;
+    max-width: 300px;
+  }
+
+  .upload-box {
+    width: 90vw;
+    max-width: 300px;
+    border-width: 3px;
+  }
+
+  .upload-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .upload-icon p {
+    font-size: 14px;
+  }
+
+  .upload-text {
+    font-size: 14px;
+  }
+
+  .upload-text span {
+    font-size: 12px;
+  }
+
+  button {
+    padding: 12px 30px;
+    font-size: 14px;
+  }
+
+  main a {
+    font-size: 14px;
+  }
+}
+
+/* Mobile: 480px and below */
+@media (max-width: 480px) {
+  main h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  input[type="file"] {
+    width: 85vw;
+    max-width: 100%;
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .upload-box {
+    width: 85vw;
+    max-width: 100%;
+    border-width: 2px;
+    border-radius: 8px;
+  }
+
+  .upload-icon {
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+
+  .upload-icon p {
+    font-size: 12px;
+    margin: 3px;
+  }
+
+  .upload-text {
+    font-size: 12px;
+  }
+
+  .upload-text span {
+    font-size: 11px;
+  }
+
+  button {
+    margin-top: 12px;
+    padding: 10px 24px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  main a {
+    margin-top: 20px;
+    font-size: 13px;
+  }
 }

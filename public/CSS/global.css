@@ -38,14 +38,13 @@ header {
   -webkit-text-fill-color: transparent;
 }
 
-#text-line{
+#text-line {
   color: #a855f7;
-  font-size:20px;
+  font-size: 20px;
   background: linear-gradient(90deg, #a855f7, #38bdf8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-} 
-
+}
 
 /* FOOTER */
 
@@ -290,6 +289,76 @@ color: rgb(150,200,255);
 color: rgb(210,220,235);
 font-weight: 600;
 margin-bottom: 20px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════════ */
+/* RESPONSIVE DESIGN - TABLET & MOBILE */
+/* ══════════════════════════════════════════════════════════════════════════════════ */
+
+/* Tablet: 768px and below */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 15px 30px;
+    gap: 15px;
+  }
+
+  .logo {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo svg {
+    height: 80px;
+  }
+
+  .logo h1 {
+    font-size: 28px;
+  }
+
+  #text-line {
+    font-size: 16px;
+  }
+
+  footer {
+    padding: 15px 10px;
+    font-size: 12px;
+  }
+
+  .footer-links a {
+    margin: 0 5px;
+    font-size: 11px;
+  }
+}
+
+/* Mobile: 480px and below */
+@media (max-width: 480px) {
+  header {
+    padding: 12px 15px;
+    gap: 10px;
+  }
+
+  .logo svg {
+    height: 60px;
+  }
+
+  .logo h1 {
+    font-size: 20px;
+  }
+
+  #text-line {
+    font-size: 13px;
+  }
+
+  footer {
+    padding: 10px 8px;
+    font-size: 10px;
+  }
+
+  .footer-links a {
+    margin: 0 3px;
+    font-size: 9px;
+  }
 }
 
 /* ===== TOP TOOLBAR ===== */
