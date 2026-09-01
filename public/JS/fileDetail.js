@@ -97,7 +97,7 @@
         `⚠️ Error: ${err.message}. Please try again.`
       );
     } finally {
-      chatSendBtn.disabled = false;
+       chatSendBtn.disabled = false;
       chatInput.focus();
     }
   }

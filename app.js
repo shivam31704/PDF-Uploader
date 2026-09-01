@@ -16,7 +16,7 @@ const {
   extractTextFromImage,
   fRoute,
   fIdRoute,
-  fIdSearchRoute
+  fIdSearchRoute,
 } = require("./controllers/fileController");
 const Tesseract = require("tesseract.js");
 const { fromPath } = require("pdf2pic");
@@ -35,16 +35,14 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
-
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
 
 app.get("/", (req, res) => {
   res.render("upload.ejs");

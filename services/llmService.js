@@ -6,6 +6,17 @@ const client = new OpenAI({
   baseURL: "https://api.groq.com/openai/v1",
 });
 
+client.models
+  .list()
+  .then((models) => {
+    console.log("===== GROQ MODELS =====");
+    console.log(models.data.map((m) => m.id));
+  })
+  .catch((err) => {
+    console.error("===== GROQ MODEL LIST ERROR =====");
+    console.error(err);
+  });
+
 // ─────────────────────────────────────────────────────────────────
 //  generateAnswer
 //
@@ -44,7 +55,7 @@ ${context}`;
   ];
 
   const response = await client.chat.completions.create({
-    model: "llama-3.1-8b-instant",   // fast Groq-hosted Llama 3.1
+    model: "openai/gpt-oss-20b", // fast Groq-hosted Llama 3.1
     messages,
     temperature: 0.3,
     max_tokens: 1024,

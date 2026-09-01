@@ -194,8 +194,8 @@ async function fIdSearchRoute(req, res) {
             `<div id="line-${i + 1}">${line.replace(
               regex,
               (m) =>
-                `<mark style="background:yellow;padding:2px 4px;">${m}</mark>`
-            )}</div>`
+                `<mark style="background:yellow;padding:2px 4px;">${m}</mark>`,
+            )}</div>`,
         )
         .join("\n");
     }
@@ -243,7 +243,7 @@ async function preprocessImage(inputPath) {
     .grayscale()
     .normalize()
     .sharpen()
-    .threshold(150)
+    .threshold(170)
     .toFile(outputPath);
   return outputPath;
 }
@@ -259,8 +259,8 @@ async function extractTextFromScannedPDF(filePath) {
     saveFilename: "temp",
     savePath: "./uploads",
     format: "png",
-    width: 1654,
-    height: 2339,
+    width: 2480,
+    height: 3508,
     quality: 100,
   });
 
@@ -270,7 +270,7 @@ async function extractTextFromScannedPDF(filePath) {
       const page = await convert(i);
       if (!page || !page.path || !fs.existsSync(page.path)) break;
 
-      const result = await Tesseract.recognize(page.path, "eng", {
+      const result = await Tesseract.recognize(page.path, "eng+hin", {
         logger: (m) => console.log(m.status),
       });
       fullText += result.data.text + "\n";
@@ -287,8 +287,6 @@ async function extractTextFromImage(imagePath) {
   const cleanedImage = await preprocessImage(imagePath);
   const result = await Tesseract.recognize(cleanedImage, "eng+hin", {
     tessedit_pageseg_mode: 6,
-    tessedit_char_whitelist:
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,:/()- ",
   });
   return result.data.text;
 }
