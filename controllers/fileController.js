@@ -191,7 +191,7 @@ async function fIdSearchRoute(req, res) {
         .split("\n")
         .map(
           (line, i) =>
-            `<div id="line-${i + 1}">${line.replace(
+            `<div id="line-${i + 1}" class="doc-line">${line.replace(
               regex,
               (m) =>
                 `<mark style="background:yellow;padding:2px 4px;">${m}</mark>`,
