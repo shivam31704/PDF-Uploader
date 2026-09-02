@@ -22,11 +22,11 @@ async function searchSimilarChunks(queryEmbedding, fileId = null, limit = 5) {
   };
 
   // Optionally filter to a single file
-  // if (fileId) {
-    // vectorSearchStage.$vectorSearch.filter = {
-      // fileId: new mongoose.Types.ObjectId(fileId),
-    // };
-  // }
+  if (fileId) {
+    vectorSearchStage.$vectorSearch.filter = {
+      fileId: new mongoose.Types.ObjectId(fileId),
+    };
+  }
 
   const results = await PdfChunk.aggregate([
     vectorSearchStage,
